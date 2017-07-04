@@ -1,0 +1,14 @@
+{
+  "metadata": {
+    "id": "updateMeteoAction",
+    "name": "updateMeteoAction",
+    "description": "",
+    "tags": [
+      "event",
+      "hidden.availableToEndUser"
+    ],
+    "readOnly": true
+  },
+  "actionExecutor": "updateMeteo",
+  "parameters": []
+}
