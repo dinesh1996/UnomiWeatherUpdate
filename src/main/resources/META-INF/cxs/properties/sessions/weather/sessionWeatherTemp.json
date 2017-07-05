@@ -3,9 +3,9 @@
     "id": "sessionWeatherTemp",
     "name": " Weather Temperature"
   },
-  "type": "string",
+  "type": "integer",
   "tags": [
-    "contactProfileProperties"
+    "sessionProperties"
   ],
   "defaultValue": "",
   "automaticMappingsFrom": [],

@@ -5,7 +5,7 @@
   },
   "type": "string",
   "tags": [
-    "contactProfileProperties"
+    "sessionProperties"
   ],
   "defaultValue": "",
   "automaticMappingsFrom": [],
