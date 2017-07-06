@@ -45,7 +45,7 @@ public class UpdateMeteoAction implements ActionExecutor {
 
     @Override
     public int execute(Action action, Event event) {
-        Profile x = profileService.load(event.getProfileId());
+
         String tempString;
 
         if (httpClient == null) {
@@ -53,25 +53,23 @@ public class UpdateMeteoAction implements ActionExecutor {
 
         }
         Session session = event.getSession();
-        ObjectMapper mapper = new ObjectMapper();
+
         Map<String, Double> location = (Map<String, Double>) session.getProperty("location");
 
 
 
-        logger.info("latitude: {}, latitude: {}", location.get("lat"), location.get("lon"));
-
 
         JsonNode jsonNode = HttpUtils.doGetHttp(httpClient, "http://api.openweathermap.org/data/2.5/weather?lat=" +
-                +location.get("lat") + "&lon=" + location.get("lon") + "&appid=3e66ec6001684dad10724dbddaf547e6");
+                location.get("lat") + "&lon=" + location.get("lon") + "&appid=3e66ec6001684dad10724dbddaf547e6");
 
-
+        logger.info(jsonNode.toString());
         tempString = getTemp(jsonNode);
         String WindInfoSpeed = getWindSpeed(jsonNode);
         String WindInfoDirection = getWindDirection(jsonNode);
         String WeatherLike = getWeatherLike(jsonNode);
 
 
-        logger.info("Passed");
+
         logger.info(tempString + " in the main function temp  ");
         logger.info(WindInfoSpeed + " in the main function Wind Speed NEw   ");
         logger.info(WindInfoDirection + " in the main function Wind Direction New  ");
@@ -83,12 +81,7 @@ public class UpdateMeteoAction implements ActionExecutor {
         filedPropreties(session, "sessionWeatherWindDirection", WindInfoDirection);
         filedPropreties(session, "sessionWeatherWindSpeed", WindInfoSpeed);
 
-        // .setProperty("sessionWeatherTemp", tempString);
-        logger.info(event.getSessionId());
-        x.setProperty("weather", tempString);
-        x.getProperty("weather");
-        x.setProperty("firstName", "test");
-        profileService.save(x);
+
         // TODO
         return EventService.SESSION_UPDATED;
     }
@@ -104,7 +97,7 @@ public class UpdateMeteoAction implements ActionExecutor {
 
             String responseString;
             responseString = jsonNode.get("main").get("temp").toString();
-            // logger.info(responseString + "    RespondString ");
+
             temp = Float.parseFloat(responseString);
             temp -= 273.15;
 
@@ -114,7 +107,7 @@ public class UpdateMeteoAction implements ActionExecutor {
             }
 
 
-            logger.info(tempInt + " Temps");
+
             return tempInt + "";
         } else {
             logger.info("api response is not good ");
@@ -133,7 +126,7 @@ public class UpdateMeteoAction implements ActionExecutor {
             speed *= 3.6;
             int speedFinal = (int) speed;
 
-            logger.info(speedFinal + "    Json For The Wind Info");
+
             return speedFinal + "";
 
         } else {
@@ -152,70 +145,70 @@ public class UpdateMeteoAction implements ActionExecutor {
 
             if (11.25 < deg && deg < 348.75) {
                 direction = ("N");
-                logger.info("N");
+
 
             } else if (11.25 < deg && deg < 33.75) {
-                logger.info("NNE");
+
                 direction = ("NNE");
 
             } else if (33.75 < deg && deg < 56.25) {
-                logger.info("NE");
+
                 direction = ("NE");
 
             } else if (56.25 < deg && deg < 78.75) {
-                logger.info("ENE");
+
                 direction = ("ENE");
 
             } else if (78.75 < deg && deg < 101.25) {
-                logger.info("E");
+
                 direction = ("E");
 
             } else if (101.25 < deg && deg < 123.75) {
-                logger.info("ESE");
+
                 direction = ("ESE");
 
             } else if (123.75 < deg && deg < 146.25) {
-                logger.info("SE");
+
                 direction = ("SE");
 
             } else if (146.25 < deg && deg < 168.75) {
-                logger.info("SSE");
+
                 direction = ("SSE");
             } else if (168.75 < deg && deg < 191.25) {
-                logger.info("S");
+
                 direction = ("S");
 
             } else if (191.25 < deg && deg < 213.75) {
-                logger.info("SSW");
+
                 direction = ("SSW");
 
             } else if (213.75 < deg && deg < 236.25) {
-                logger.info("SW");
+
                 direction = ("SW");
 
             } else if (236.25 < deg && deg < 258.75) {
-                logger.info("WSW");
+
                 direction = ("WSW");
 
             } else if (258.75 < deg && deg < 281.25) {
-                logger.info("W");
+
                 direction = ("W");
 
             } else if (281.25 < deg && deg < 303.75) {
-                logger.info("WNW");
+
                 direction = ("WNW");
 
             } else if (303.75 < deg && deg < 326.25) {
-                logger.info("NW");
+
                 direction = ("NW");
 
             } else if (326.25 < deg && deg < 348.75) {
-                logger.info("NNW");
+
                 direction = ("NNW");
             }
 
 
-            logger.info(WindInfoDirection + "    Json For The Wind Info");
+
             return direction;
 
         } else {

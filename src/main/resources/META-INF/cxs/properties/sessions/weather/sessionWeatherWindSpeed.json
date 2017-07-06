@@ -3,7 +3,7 @@
     "id": "sessionWeatherWindSpeed",
     "name": " Weather Wind Speed"
   },
-  "type": "string",
+  "type": "integer",
   "tags": [
     "sessionProperties"
   ],
