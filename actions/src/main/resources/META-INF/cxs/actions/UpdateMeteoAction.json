@@ -1,11 +1,12 @@
 {
   "metadata": {
     "id": "updateMeteoAction",
-    "name": "updateMeteoAction",
-    "description": "",
+    "name": "Update session with local weather information",
+    "description": "This action will retrieve the weather associated with the resolved location of the user (from his IP address)",
     "tags": [
       "event",
-      "hidden.availableToEndUser"
+      "hidden.availableToEndUser",
+      "hidden.hasNoTemplate"
     ],
     "readOnly": true
   },
