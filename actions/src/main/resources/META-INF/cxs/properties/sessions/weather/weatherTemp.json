@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "id": "sessionWeatherTemp",
-    "name": " Weather Temperature"
+    "id": "weatherTemperature",
+    "name": "Weather Temperature"
   },
   "type": "integer",
   "tags": [

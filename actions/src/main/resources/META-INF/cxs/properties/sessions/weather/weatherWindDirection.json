@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "id": "sessionWeatherWindDirection",
-    "name": " Weather Wind Direction"
+    "id": "weatherWindDirection",
+    "name": "Weather Wind Direction"
   },
   "type": "string",
   "tags": [

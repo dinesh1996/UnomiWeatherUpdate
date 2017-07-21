@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "id": "sessionWeatherLike",
-    "name": " Weather Description "
+    "id": "weatherWindSpeed",
+    "name": "Weather Wind Speed"
   },
-  "type": "string",
+  "type": "integer",
   "tags": [
     "sessionProperties"
   ],

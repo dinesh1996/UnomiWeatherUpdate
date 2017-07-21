@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "id": "smp:updateMeteo",
-    "name": "Update Meteo",
+    "id": "weatherUpdate",
+    "name": "Add weather information to session",
     "description": "Get the weather from a city"
   },
   "raiseEventOnlyOnceForSession": false,
@@ -12,7 +12,7 @@
         {
           "type": "eventTypeCondition",
           "parameterValues": {
-            "eventTypeId": "meteoEvent"
+            "eventTypeId": "weatherEvent"
           }
         },
         {
@@ -28,7 +28,7 @@
   },
   "actions": [
     {
-      "type": "updateMeteoAction",
+      "type": "weatherUpdateAction",
       "parameterValues": {}
     }
   ]
