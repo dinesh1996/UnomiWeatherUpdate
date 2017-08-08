@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>org.apache.unomi</groupId>
+  <artifactId>unomi-weather-update-core</artifactId>
+  <version>1.2.0-incubating-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <localCopy>true</localCopy>
+    </snapshot>
+    <lastUpdated>20170808083226</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <classifier>weatherupdatecfg</classifier>
+        <extension>cfg</extension>
+        <value>1.2.0-incubating-SNAPSHOT</value>
+        <updated>20170808083226</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
